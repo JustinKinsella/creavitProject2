@@ -15,39 +15,51 @@ window.onload = function(){
         try {
             response = await fetch(URL);
             json = await response.json();
-            console.log("json: ", json);
+            console.log("image json: ", json);
 
+            document.getElementById("DisplayResults").innerHTML = "";
+
+            var output = '<img src="' +json.hits[0].largeImageURL+ '" alt="' + json.hits[0].tags + '">';
+            for(let i = 1; i < json.hits.length; i++)
+            {
+                
+            }
+            document.getElementById("DisplayResults").innerHTML += output;
         }
         catch(err){
             console.log(err);
         }
 
     });
-    document.getElementById("submit").addEventListener("click", async function(gifevent) {
-        gifevent.preventDefault();
+  
 
-        let gifValue = document.getElementById("Searchgifs").gifValue;
-        if (gifValue === "")
-        {
-            return;
-        }
-
-        console.log(gifValue);
-        var encodedGifURL = encodeURI(gifValue);
-        console.log(encodedGifURL);
-        var GIPHY_API_KEY = "VoGBCrpbqliEIBAHyzVJrffFcFv1fXGG";
-
-        var GifURL = "https://api.giphy.com/v1/gifs/search?api_key="+GIPHY_API_KEY+"&q="+encodedGifURL+"lmiit=20&offset=0&rating=PG-13&lang=en";
-        try {
-            response = await fetch(GifURL);
-            json = await response.json();
-            console.log("json: " + json)
-        }
-        catch(err){
-            console.log(err);
-        }
-
-    });
 }
 
 //https://api.giphy.com/v1/gifs/search?api_key=VoGBCrpbqliEIBAHyzVJrffFcFv1fXGG&q=VALUEHERE&limit=10&offset=0&rating=PG-13&lang=en
+
+  // document.getElementById("gifSubmit").addEventListener("click", async function(event) {
+    //     event.preventDefault();
+
+    //     const value = document.getElementById("searchGifs").value;
+    //     if (value === "")
+    //     {
+    //         return;
+    //     }
+
+    //     console.log(value);
+    //     var encodedGifURL = encodeURI(value);
+    //     console.log(encodedGifURL);
+    //     var GIPHY_API_KEY = "VoGBCrpbqliEIBAHyzVJrffFcFv1fXGG";
+
+    //     var URL = "https://api.giphy.com/v1/gifs/search?api_key="+GIPHY_API_KEY+"&q="+"cats"+"&lmiit=20&rating=PG-13&lang=en";
+    //     console.log(URL);
+    //     try {
+    //         response = await fetch(URL);
+    //         gifjson = await response.json();
+    //         console.log("gif json: " + gifjson)
+    //     }
+    //     catch(err){
+    //         console.log(err);
+    //     }
+
+    // });
