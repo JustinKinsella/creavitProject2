@@ -16,16 +16,38 @@ window.onload = function(){
             response = await fetch(URL);
             json = await response.json();
             console.log("json: ", json);
+
         }
         catch(err){
             console.log(err);
         }
 
+    });
+    document.getElementById("submit").addEventListener("click", async function(gifevent) {
+        gifevent.preventDefault();
+
+        let gifValue = document.getElementById("Searchgifs").gifValue;
+        if (gifValue === "")
+        {
+            return;
+        }
+
+        console.log(gifValue);
+        var encodedGifURL = encodeURI(gifValue);
+        console.log(encodedGifURL);
+        var GIPHY_API_KEY = "VoGBCrpbqliEIBAHyzVJrffFcFv1fXGG";
+
+        var GifURL = "https://api.giphy.com/v1/gifs/search?api_key="+GIPHY_API_KEY+"&q="+encodedGifURL+"lmiit=20&offset=0&rating=PG-13&lang=en";
+        try {
+            response = await fetch(GifURL);
+            json = await response.json();
+            console.log("json: " + json)
+        }
+        catch(err){
+            console.log(err);
+        }
 
     });
 }
 
-
-let giphySearch = "";
-var GIPHY_API_KEY = "VoGBCrpbqliEIBAHyzVJrffFcFv1fXGG";
-var GIPHY_URL = "https://api.giphy.com/v1/gifs/search?api_key="+GIPHY_API_KEY+"&q="+giphySearch+"&limit=25&offset=0&rating=PG-13&lang=en";
+//https://api.giphy.com/v1/gifs/search?api_key=VoGBCrpbqliEIBAHyzVJrffFcFv1fXGG&q=VALUEHERE&limit=10&offset=0&rating=PG-13&lang=en
