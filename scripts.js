@@ -19,12 +19,14 @@ window.onload = function(){
 
             document.getElementById("DisplayResults").innerHTML = "";
 
-            var output = '<img src="' +json.hits[0].largeImageURL+ '" alt="' + json.hits[0].tags + '">';
-            for(let i = 1; i < json.hits.length; i++)
+            var output = "<a href='" +json.hits[0].pageURL+ "'>" + '<img src="' +json.hits[0].largeImageURL+ '" alt="' + json.hits[0].tags + '" width:"100%"></a>';
+            var results = "";
+            for(let i=1; i < json.hits.length; i++)
             {
-                
+                results += "<div class='image'><a href='" +json.hits[i].pageURL+ "'>" +'<img src="' +json.hits[i].webformatURL+ '" alt="' + json.hits[i].tags + '"></a></div>';
             }
             document.getElementById("DisplayResults").innerHTML += output;
+            document.getElementById("results").innerHTML = results;
         }
         catch(err){
             console.log(err);

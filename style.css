@@ -1,0 +1,48 @@
+#footer {
+
+    position: fixed;
+    bottom: 0;
+    background: #5a5959;
+    color: #f3f1f1;
+    width: 100%;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: -10px;
+   
+}
+
+#imageSearch {
+    width: 100%;
+    color: whitesmoke;
+    text-align: center;
+}
+
+body {
+    background-image: url(./images/lens-490806.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#DisplayResults img {
+    width: 100%;
+}
+
+#results {
+    padding: 10%;
+}
+
+.image {
+    
+    display: inline-flex;
+    padding: 2%;
+}
+
+.image img {
+    box-shadow: 0px 0px 25px #f3f1f1;
+    border-radius:25px;
+}
+
